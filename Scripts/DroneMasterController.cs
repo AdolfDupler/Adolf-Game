@@ -69,7 +69,7 @@ public class DroneMasterController : MonoBehaviour {
     private void SelectionUpdate()
     {
         if (Mathf.Abs(transform.position.x - Camera.main.transform.position.x) < 5 &&
-            Mathf.Abs(transform.position.z - Camera.main.transform.position.z) < 5)
+            Mathf.Abs(transform.position.z - Camera.main.transform.position.z - Camera.main.transform.position.y) < 5)
         {
             if (!isSelected)
             {
@@ -84,7 +84,7 @@ public class DroneMasterController : MonoBehaviour {
 
         if (Input.GetButton("Fire2") && isSelected)//B,move towards
         {
-           targetPosition = new Vector3(Camera.main.transform.position.x, 0.5f, Camera.main.transform.position.z);
+           targetPosition = new Vector3(Camera.main.transform.position.x, 0.5f, Camera.main.transform.position.z+Camera.main.position.transform.y);
         }
         if (Input.GetButton("Fire3"))//X, unselect
         {
